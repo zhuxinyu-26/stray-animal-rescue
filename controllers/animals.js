@@ -4,6 +4,7 @@ const fs = require('fs');
 
 /* GET animals listing. */
 router.get('/', (req, res) => {
+  //get data from json file
   fs.readFile('./data/animals.json', 'utf8', (err, animals) => {
     if (err) {
       console.log(err);

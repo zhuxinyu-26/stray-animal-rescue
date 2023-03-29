@@ -1,13 +1,14 @@
-{
-    "cats": [
-        {
-            "name": "one-eye"
-        },
-        {
-            "name": "No.3"
-        },
-        {
-            "name": "In the pocket"
-        }
-    ]
-}
+[
+    {
+        "name": "one-eye"
+    },
+    {
+        "name": "No.3"
+    },
+    {
+        "name": "In the pocket"
+    },
+    {
+        "name": "301"
+    }
+]

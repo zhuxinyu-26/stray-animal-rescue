@@ -1,10 +1,36 @@
-<!DOCTYPE html>
 <html>
   <head>
     <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
+  <script src='/javascripts/bootstrap.min.js' defer></script>
+  <script src='/javascripts/jquery.min.js' defer></script>
   <body>
+    <nav id='menu'>
+
+      <ul>
+        <li><a href='/'>Home</a></li>
+        <li><a class='dropdown-arrow' href='http://'>Products</a>
+          <ul class='sub-menus'>
+            <li><a href='http://'>Products 1</a></li>
+            <li><a href='http://'>Products 2</a></li>
+            <li><a href='http://'>Products 3</a></li>
+            <li><a href='http://'>Products 4</a></li>
+          </ul>
+        </li>
+        <li><a href='/about'>About</a></li>
+        <li><a class='dropdown-arrow' href='http://'>Services</a>
+          <ul class='sub-menus'>
+            <li><a href='http://'>Services 1</a></li>
+            <li><a href='http://'>Services 2</a></li>
+            <li><a href='http://'>Services 3</a></li>
+          </ul>
+        </li>
+        <li><a href='http://'>Contact Us</a></li>
+        <li><a href='http://'>Menu Item</a></li>
+      </ul>
+    </nav>
     {{{body}}}
   </body>
 </html>

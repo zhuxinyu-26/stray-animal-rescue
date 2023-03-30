@@ -1,6 +1,23 @@
 <h1>Animal List</h1>
 <a href='/animals/create'>Add a new rescued animal</a>
-<ul>{{#each animals}}
+<br />
+{{!-- <table class='table table-stripeed table-hover'>
+  <thead>
+
+  </thead>{{#each animals}}
     <li>{{this.name}}</li>
   {{/each}}
-</ul>
+</table> --}}
+{{#each animals}}
+
+  <div class='card d-inline-flex p-2' style='width: 18rem;'>
+    {{! <img src='...' class='card-img-top' alt='...' /> }}
+    <div class='card-body'>
+      <h5 class='card-title'>{{this.name}}</h5>
+      <p class='card-text'>Species: {{this.species}}</p>
+      <p class='card-text'>Color: {{this.color}}</p>
+      <p class='card-text'>Sterilized: {{this.sterilized}}</p>
+      <p class='card-text'>Comments: {{this.comments}}</p>
+      <a href='#' class='btn btn-primary'>Adopt</a>
+    </div>
+  </div>{{/each}}

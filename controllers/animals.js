@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 // const fs = require('fs');
 const Animal = require('../models/animals');
+const Species = require('../models/species');
 
 /* GET animals listing. */
 router.get('/', (req, res) => {
@@ -33,7 +34,13 @@ router.get('/', (req, res) => {
 
 // GET create
 router.get('/create', (req, res) => {
-  res.render('animals/create');
+  Species.find((err, species) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('animals/create', { species: species });
+    }
+  });
 });
 
 // POST create

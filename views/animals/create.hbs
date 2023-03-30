@@ -5,7 +5,9 @@
     <label for='name'>Name:</label>
     <input type='text' name='name' id='name' required /><br />
     <label for='species'>Species:</label>
-    <input type='text' name='species' id='species' required /><br />
+    <select name='species' id='species' required>
+      {{#each species}} <option> {{this.species}} </option> {{/each}}</select>
+    <br />
     <label for='age'>Age:</label>
     <input type='number' name='age' id='age' /><br />
     <label for='color'>Color:</label>

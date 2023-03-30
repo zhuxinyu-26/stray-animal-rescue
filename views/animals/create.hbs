@@ -1,0 +1,23 @@
+<h1>Create Animal</h1>
+<form method='POST'>
+  <fieldset>
+    <legend>Basic Information</legend>
+    <label for='name'>Name:</label>
+    <input type='text' name='name' id='name' required /><br />
+    <label for='species'>Species:</label>
+    <input type='text' name='species' id='species' required /><br />
+    <label for='age'>Age:</label>
+    <input type='number' name='age' id='age' /><br />
+    <label for='color'>Color:</label>
+    <input type='text' name='color' id='color' /><br />
+  </fieldset>
+  <fieldset>
+    <legend>Other Information</legend>
+    <label for='sterilized'>Sterilized:</label>
+    <input type='checkbox' name='sterilized' value='true' id='sterilized' /><br
+    />
+    <label for='comments'>Comments:</label><br />
+    <textarea name='comments' id='comments'></textarea><br />
+  </fieldset>
+  <input type='submit' value='Create' />
+</form>

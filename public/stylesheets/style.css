@@ -139,3 +139,9 @@ a {
     display: block;
   }
 }
+fieldset {
+  border: 1px solid #cca383;
+  width: 50%;
+  background: #ffe8ef;
+  padding: 30px;
+}

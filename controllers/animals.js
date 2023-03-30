@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
+const Animal = require('../models/animals');
 
 /* GET animals listing. */
 router.get('/', (req, res) => {
@@ -14,6 +15,22 @@ router.get('/', (req, res) => {
         title: 'Animal List',
         animals: JSON.parse(animals),
       });
+    }
+  });
+});
+
+// GET create
+router.get('/create', (req, res) => {
+  res.render('animals/create');
+});
+
+// POST create
+router.post('/create', (req, res) => {
+  Animal.create(req.body, (err, newDocument) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect('/animals');
     }
   });
 });

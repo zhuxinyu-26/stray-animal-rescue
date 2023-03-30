@@ -8,6 +8,7 @@ const indexRouter = require('./controllers/index');
 const usersRouter = require('./controllers/users');
 //ref new controllers
 const animals = require('./controllers/animals');
+const species = require('./controllers/species');
 const app = express();
 
 // view engine setup
@@ -39,7 +40,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 //map
 app.use('/animals', animals);
-
+app.use('/species', species);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

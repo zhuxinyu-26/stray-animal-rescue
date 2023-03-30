@@ -1,0 +1,35 @@
+<h1>Create Animal</h1>
+<form method='POST'>
+  <fieldset>
+    <legend>Basic Information</legend>
+    <label for='name'>Name:</label>
+    <input
+      type='text'
+      name='name'
+      id='name'
+      value='{{animal.name}}'
+      required
+    /><br />
+    <label for='species'>Species:</label>
+    <select name='species' id='species' required>
+      {{#each species}}  
+        {{selectOption this.species ../animal.species}}
+      {{/each}}
+    </select>
+    <br />
+    <label for='age'>Age:</label>
+    <input type='number' name='age' id='age' value='{{animal.age}}' /><br />
+    <label for='color'>Color:</label>
+    <input type='text' name='color' id='color' value='{{animal.color}}' /><br />
+    
+  </fieldset>
+  <fieldset>
+    <legend>Other Information</legend>
+    {{!-- <label for='sterilized'>Sterilized:</label>
+    <input type='checkbox' name='sterilized' value='true' id='sterilized' {{#if animal.sterilized}} checked {{/if}} /> --}}<br
+    />
+    <label for='comments'>Comments:</label><br />
+    <textarea name='comments' id='comments'>{{animal.comments}}</textarea><br />
+  </fieldset>
+  <input type='submit' value='Create' />
+</form>

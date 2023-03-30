@@ -53,4 +53,60 @@ router.post('/create', (req, res) => {
     }
   });
 });
+
+// GET delete/ab123
+router.get(
+  '/delete/:_id',
+  // global.isAuthenticated,
+  (req, res) => {
+    Animal.remove({ _id: req.params._id }, (err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.redirect('/animals');
+      }
+    });
+  }
+);
+/* GET /edit/abc123 => fetch & display selected animal */
+router.get(
+  '/edit/:_id',
+  // global.isAuthenticated,
+  (req, res) => {
+    Animal.findById(req.params._id, (err, animal) => {
+      if (err) {
+        console.log(err);
+      } else {
+        Species.find((err, species) => {
+          if (err) {
+            console.log(err);
+          } else {
+            res.render('animals/edit', {
+              animal: animal,
+              title: 'Edit animal Details',
+              species: species,
+              user: req.user,
+            });
+          }
+        });
+      }
+    });
+  }
+);
+
+/* POST /edit/abc123 => update seleted animal */
+router.post(
+  '/edit/:_id',
+  // global.isAuthenticated,
+  (req, res) => {
+    Animal.findByIdAndUpdate({ _id: req.params._id }, req.body, null, (err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.redirect('/animals');
+      }
+    });
+  }
+);
+
 module.exports = router;

@@ -4,7 +4,7 @@ const Species = require('../models/species');
 
 // GET create
 router.get('/create', (req, res) => {
-  res.render('species/create');
+  res.render('species/create', { user: req.user });
 });
 
 // POST create

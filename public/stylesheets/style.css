@@ -153,3 +153,6 @@ fieldset {
   max-width: 400px; /* optional: set a maximum width for larger screens */
   margin-bottom: 20px; /* optional: add some margin between cards */
 }
+#imgShowHide {
+  cursor: pointer;
+}

@@ -37,6 +37,29 @@ mongoose
     console.log('Connection to MongoDB Failed');
   });
 
+//passport auth config
+const passport = require('passport');
+const session = require('express-session');
+
+app.use(
+  session({
+    secret: process.env.PASSPORT_SECRET,
+    resave: true,
+    saveUninitialized: false,
+  })
+);
+
+// start passport w/session support
+app.use(passport.initialize());
+app.use(passport.session());
+
+const User = require('./models/user');
+passport.use(User.createStrategy());
+
+// read / write session vars
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 //map

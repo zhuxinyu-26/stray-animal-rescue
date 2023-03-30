@@ -9,6 +9,7 @@ const usersRouter = require('./controllers/users');
 //ref new controllers
 const animals = require('./controllers/animals');
 const species = require('./controllers/species');
+const auth = require('./controllers/auth');
 const app = express();
 
 // view engine setup
@@ -41,6 +42,7 @@ app.use('/users', usersRouter);
 //map
 app.use('/animals', animals);
 app.use('/species', species);
+app.use('/auth', auth);
 // add hbs extension function to select the correct dropdown option when editing
 const hbs = require('hbs');
 hbs.registerHelper('selectOption', (currentValue, selectedValue) => {

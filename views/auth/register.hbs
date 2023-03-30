@@ -48,12 +48,16 @@
       class='btn btn-secondary offset-2'
       onclick='return comparePasswords();'
     >Register</button>
-
+    {{! signin with google button }}
     <a href='/auth/google' class='btn btn-primary button-link'><i
         class='fa-brands fa-google'
       ></i>
       Sign in with Google</a>
-
+    {{! signin with github button }}
+    <a href='/auth/github' class='btn btn-primary button-link'><i
+        class='fa-brands fa-github'
+      ></i>
+      Sign in with GitHub</a>
     <hr />
     Already have an account?
     <a href='/auth/login' title='Login'>Login</a>

@@ -87,6 +87,40 @@ passport.use(
   )
 );
 
+// github auth strategy for passport
+// 1. authenticate github app w/api keys
+// 2. check if we already have this user w/this github id in the users collection
+// 3. if user not found, create a new github user in our users collection
+const GitHubStrategy = require('passport-github').Strategy;
+passport.use(
+  new GitHubStrategy(
+    {
+      clientID: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      callbackURL: process.env.GITHUB_CALLBACK_URL,
+    },
+    (accessToken, refreshToken, profile, done) => {
+      User.findOrCreate(
+        { githubId: profile.id },
+        {
+          username: profile.displayName,
+          oauthProvider: 'GitHub',
+        },
+        (err, user) => {
+          return done(err, user);
+        }
+      );
+    }
+  )
+);
+passport.serializeUser(function (user, cb) {
+  cb(null, user);
+});
+
+passport.deserializeUser(function (obj, cb) {
+  cb(null, obj);
+});
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 //map

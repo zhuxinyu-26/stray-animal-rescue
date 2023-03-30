@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
   password: String,
   oauthProvider: String,
   oauthId: String,
+  githubId: String,
 });
 
 // convert this model from a regular model to one that inherits all the abilities of user management

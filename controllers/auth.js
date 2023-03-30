@@ -64,7 +64,7 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
   });
 });
-
+//google auth
 router.get(
   '/google',
   passport.authenticate('google', {
@@ -81,5 +81,20 @@ router.get(
     failureMessage: 'Could not authenticate with Google',
   })
 );
-
+//github auth
+router.get(
+  '/github',
+  passport.authenticate('github', {
+    scope: ['profile'],
+  }),
+  (req, res) => {}
+);
+router.get(
+  '/github/callback',
+  passport.authenticate('github', {
+    successRedirect: '/animals',
+    failureRedirect: '/auth/login',
+    failureMessage: 'Could not authenticate with GitHub',
+  })
+);
 module.exports = router;

@@ -1,25 +1,28 @@
-<h1>Create Animal</h1>
-<form method='POST'>
-  <fieldset>
-    <legend>Basic Information</legend>
-    <label for='name'>Name:</label>
-    <input type='text' name='name' id='name' required /><br />
-    <label for='species'>Species:</label>
+<div class='colored-page'>
+  <h2>Add a new Rescued Pet</h2>
+  <form method='POST'>
+
+    <input type='text' name='name' id='name' placeholder='Name' required />
+
     <select name='species' id='species' required>
       {{#each species}} <option> {{this.species}} </option> {{/each}}</select>
-    <br />
-    <label for='age'>Age:</label>
-    <input type='number' name='age' id='age' /><br />
-    <label for='color'>Color:</label>
-    <input type='text' name='color' id='color' /><br />
-  </fieldset>
-  <fieldset>
-    <legend>Other Information</legend>
-    {{! <label for='sterilized'>Sterilized:</label>
-    <input type='checkbox' name='sterilized' value='true' id='sterilized' /> }}
-    <br />
-    <label for='comments'>Comments:</label><br />
-    <textarea name='comments' id='comments'></textarea><br />
-  </fieldset>
-  <input type='submit' value='Create' />
-</form>
+
+    <input type='number' name='age' id='age' placeholder='Age' />
+
+    <input type='text' name='color' id='color' placeholder='Color' />
+
+    <textarea
+      name='comments'
+      id='comments'
+      placeholder="What's Special About This Pet?"
+    ></textarea>
+
+    <input class='btn btn-primary' type='submit' value='Create' />
+  </form>
+  <div class='white'>
+    <img
+      class='dog-cat-dog'
+      src='/images/cat-dog.png'
+      alt='dog and cat image'
+    /></div>
+</div>

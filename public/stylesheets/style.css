@@ -90,13 +90,58 @@ a.user-nav:hover {
 }
 
 /* form */
-fieldset {
-  border: 1px solid #cca383;
-  width: 50%;
-  background: #ffe8ef;
-  padding: 30px;
+
+form {
+  background-color: #867070;
+  display: flex;
+  flex-direction: column;
+  padding: 2vw 4vw;
+  width: 52%;
+  border-radius: 10px;
+}
+form h3 {
+  color: #f5ebeb;
+  margin-bottom: 15px;
+  text-align: center;
+}
+form input,
+form textarea {
+  border: 0;
+  margin: 10px 0;
+  padding: 18px;
+  outline: none;
+  background: #e4d0d0;
+  font-size: 1.2rem;
+  border-radius: 15px;
+}
+select {
+  border: 0;
+  margin: 10px 0;
+  padding: 18px;
+  outline: none;
+  background: #e4d0d0;
+  font-size: 1.2rem;
+  border-radius: 15px;
 }
 
+option {
+  font-size: 1.2rem;
+  padding: 10px;
+  background: #e4d0d0;
+  color: #333;
+}
+.dog-cat-dog {
+  width: 50vw;
+  position: absolute;
+  bottom: -30px;
+  right: -50px;
+}
+.dog-cat-hamster {
+  width: 40vw;
+  position: absolute;
+  bottom: -450px;
+  right: 0;
+}
 /* card */
 .colored-page {
   padding: 50px 150px;

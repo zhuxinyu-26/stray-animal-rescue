@@ -22,7 +22,14 @@ p {
 a {
   color: #00b7ff;
 }
-
+.btn-primary {
+  background-color: #867070;
+  border-color: #867070;
+}
+.btn-primary:hover {
+  background-color: #715e5e;
+  border-color: #715e5e;
+}
 /* navbar */
 .logo {
   width: 60px;
@@ -49,11 +56,15 @@ a {
 a.user-nav:hover {
   background-color: #d5b4b4;
 }
+.navbar a.navbar-brand,
+a.user-name {
+  width: auto;
+}
 
 /* header section */
 .headerSection {
   width: 100%;
-  height: 95vh;
+  height: 90vh;
   background-color: #f5ebeb;
 }
 .white {
@@ -77,9 +88,10 @@ a.user-nav:hover {
   width: 600px;
 }
 .colored a {
+  font-size: 21px;
   text-align: center;
-  width: 130px;
-  height: 40px;
+  width: 150px;
+  height: 45px;
   margin-top: 25px;
 }
 .dog-cat {
@@ -92,7 +104,7 @@ a.user-nav:hover {
 /* form */
 
 form {
-  background-color: #867070;
+  background-color: #f5ebeb;
   display: flex;
   flex-direction: column;
   padding: 2vw 4vw;
@@ -110,7 +122,7 @@ form textarea {
   margin: 10px 0;
   padding: 18px;
   outline: none;
-  background: #e4d0d0;
+  background: #fff;
   font-size: 1.2rem;
   border-radius: 15px;
 }
@@ -119,7 +131,7 @@ select {
   margin: 10px 0;
   padding: 18px;
   outline: none;
-  background: #e4d0d0;
+  background: #fff;
   font-size: 1.2rem;
   border-radius: 15px;
 }
@@ -127,7 +139,7 @@ select {
 option {
   font-size: 1.2rem;
   padding: 10px;
-  background: #e4d0d0;
+  background: #fff;
   color: #333;
 }
 .dog-cat-dog {
@@ -139,9 +151,10 @@ option {
 .dog-cat-hamster {
   width: 40vw;
   position: absolute;
-  bottom: -450px;
+  top: 50px;
   right: 0;
 }
+
 /* card */
 .colored-page {
   padding: 50px 150px;
@@ -166,13 +179,70 @@ option {
 .card .action {
   width: 40px;
   height: 37px;
+  display: inline-flex;
+  align-items: center;
 }
-.card .action i {
-  font-size: 20px;
-  width: 100%;
-  margin: auto;
-}
+
 /* additional */
 #imgShowHide {
   cursor: pointer;
+  width: 20px;
+}
+#auth-page p {
+  font-size: 20px;
+  padding: 2vh 4vw;
+  width: 52%;
+  border-radius: 10px;
+}
+#auth-page form {
+  background-color: #f5ebeb;
+}
+#auth-page input {
+  width: 70%;
+  background-color: white;
+  margin-right: 10px;
+}
+#auth-page label {
+  font-size: 1.2rem;
+  width: 120px;
+}
+#auth-page p.already {
+  width: 100%;
+  padding: 0;
+}
+#auth-page .form-group {
+  margin-top: 20px;
+}
+#auth-page .form-group .btn {
+  margin: 0px;
+}
+#auth-page .dog {
+  width: 350px;
+  position: absolute;
+  right: 250px;
+  top: 200px;
+}
+
+@media (max-width: 999px) {
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 2vw 4vw;
+    width: 100%;
+    margin-bottom: 25px;
+  }
+
+  .dog-cat-dog,
+  .dog-cat-hamster {
+    width: 100%;
+    position: relative;
+    bottom: 20px;
+    right: 0;
+  }
+  .dog-cat {
+    width: 80%;
+    position: relative;
+    top: 25px;
+    right: 0;
+  }
 }

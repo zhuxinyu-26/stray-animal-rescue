@@ -1,35 +1,31 @@
-<h1>Create Animal</h1>
+<div class='colored-page'>
+<h2>Edit Information</h2>
+
+
 <form method='POST'>
-  <fieldset>
-    <legend>Basic Information</legend>
-    <label for='name'>Name:</label>
-    <input
-      type='text'
-      name='name'
-      id='name'
-      value='{{animal.name}}'
-      required
-    /><br />
-    <label for='species'>Species:</label>
+
+    <input type='text' name='name' id='name' placeholder='Name'value='{{animal.name}}' required />
+
     <select name='species' id='species' required>
-      {{#each species}}  
+     {{#each species}}  
         {{selectOption this.species ../animal.species}}
-      {{/each}}
-    </select>
-    <br />
-    <label for='age'>Age:</label>
-    <input type='number' name='age' id='age' value='{{animal.age}}' /><br />
-    <label for='color'>Color:</label>
-    <input type='text' name='color' id='color' value='{{animal.color}}' /><br />
-    
-  </fieldset>
-  <fieldset>
-    <legend>Other Information</legend>
-    {{!-- <label for='sterilized'>Sterilized:</label>
-    <input type='checkbox' name='sterilized' value='true' id='sterilized' {{#if animal.sterilized}} checked {{/if}} /> --}}<br
-    />
-    <label for='comments'>Comments:</label><br />
-    <textarea name='comments' id='comments'>{{animal.comments}}</textarea><br />
-  </fieldset>
-  <input type='submit' value='Create' />
-</form>
+      {{/each}}</select>
+
+    <input type='number' name='age' id='age' placeholder='Age'value='{{animal.age}}' />
+
+    <input type='text' name='color' id='color' placeholder='Color' value='{{animal.color}}'/>
+
+    <textarea
+      name='comments'
+      id='comments'
+      placeholder="What's Special About This Pet?"
+    >{{animal.comments}}</textarea>
+
+    <input class='btn btn-primary' type='submit' value='Create' />
+  </form>
+  <div class='white'>
+    <img
+      class='dog-cat-dog'
+      src='/images/cat-dog.png'
+      alt='dog and cat image'
+    /></div></div>

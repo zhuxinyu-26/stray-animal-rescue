@@ -1,42 +1,48 @@
-<h1>Login</h1>
-{{#if messages}}
-  <p class='alert alert-danger'>Invalid Login</p>
-{{else}}
-  <p class='alert alert-secondary'>Please enter your credentials</p>
-{{/if}}
-<form method='post'>
-  <fieldset class='form-group'>
-    <label for='username' class='col-2 control-label'>Username: *</label>
-    <input name='username' id='username' required />
-  </fieldset>
-  <fieldset class='form-group'>
-    <label for='password' class='col-2 control-label'>Password: *</label>
-    <input name='password' id='password' type='password' required />
-    <img
-      src='/images/show.png'
-      alt='Show/Hide'
-      id='imgShowHide'
-      onclick='showHide();'
-    />
-  </fieldset>
-  <fieldset class='form-group'>
-    <button class='btn btn-secondary offset-2'>Login</button>
-    {{! <a href='/auth/google' class='btn btn-primary button-link'><i
+<div class='colored-page' id='auth-page'>
+  <h2>Login</h2>
+  {{#if messages}}
+    <p class='alert alert-danger'><i class='fa-solid fa-circle-exclamation'></i>
+      Invalid Login</p>
+  {{else}}
+    <p class='alert alert-secondary'><i class='fa-solid fa-paw'></i>
+      Please enter your credentials</p>
+  {{/if}}
+  <form method='post'>
+    <fieldset class='form-group'>
+      <label for='username' class='col-2 control-label'>Username: *</label>
+      <input name='username' id='username' required />
+    </fieldset>
+    <fieldset class='form-group'>
+      <label for='password' class='col-2 control-label'>Password: *</label>
+      <input name='password' id='password' type='password' required />
+      <img
+        src='/images/show.png'
+        alt='Show/Hide'
+        id='imgShowHide'
+        onclick='showHide();'
+      />
+    </fieldset>
+    <fieldset class='form-group'>
+      <button class='btn btn-secondary offset-2'>Login</button>
+      {{! <a href='/auth/google' class='btn btn-primary button-link'><i
         class='fa-brands fa-google'
       ></i>
       Sign in with Google</a> }}
-    {{! signin with google button }}
-    <a href='/auth/google' class='btn btn-primary button-link'><i
-        class='fa-brands fa-google'
-      ></i>
-      Sign in with Google</a>
-    {{! signin with github button }}
-    <a href='/auth/github' class='btn btn-primary button-link'><i
-        class='fa-brands fa-github'
-      ></i>
-      Sign in with GitHub</a>
-    <hr />
-    Need an account?
-    <a href='/auth/register' title='Register'>Register</a>
-  </fieldset>
-</form>
+      {{! signin with google button }}
+      <a href='/auth/google' class='btn btn-primary button-link'><i
+          class='fa-brands fa-google'
+        ></i>
+        Sign in with Google</a>
+      {{! signin with github button }}
+      <a href='/auth/github' class='btn btn-primary button-link'><i
+          class='fa-brands fa-github'
+        ></i>
+        Sign in with GitHub</a>
+      <hr />
+      <p class='already'>Need an account?
+        <a href='/auth/register' title='Register'>Register</a></p>
+
+    </fieldset>
+  </form>
+  <img class='dog' src='/images/dog-png-ekf-home-39.png' alt='dog' />
+</div>

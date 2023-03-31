@@ -1,65 +1,70 @@
-<h1>Register</h1>
-{{#if messages}}
-  <p class='alert alert-danger'>{{messages}}</p>
-{{else}}
-  <p class='alert alert-secondary'>Please create your account</p>
-{{/if}}
-<form method='post'>
-  <fieldset class='form-group'>
-    <label for='username' class='col-2 control-label'>Username: *</label>
-    <input
-      name='username'
-      id='username'
-      required
-      type='email'
-      placeholder='email@email.com'
-    />
-  </fieldset>
-  <fieldset class='form-group'>
-    <label for='password' class='col-2 control-label'>Password: *</label>
-    <input
-      name='password'
-      id='password'
-      type='password'
-      required
-      pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
-    />
-    <img
-      src='/images/show.png'
-      alt='Show/Hide'
-      id='imgShowHide'
-      onclick='showHide();'
-    />
-  </fieldset>
-  <fieldset class='form-group'>
-    <label for='confirm' class='col-2 control-label'>Confirm: *</label>
-    <input
-      name='confirm'
-      id='confirm'
-      type='password'
-      required
-      pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
-      onkeyup='return comparePasswords();'
-    />
-    <span id='pwMsg'></span>
-  </fieldset>
-  <fieldset class='form-group'>
-    <button
-      class='btn btn-secondary offset-2'
-      onclick='return comparePasswords();'
-    >Register</button>
-    {{! signin with google button }}
-    <a href='/auth/google' class='btn btn-primary button-link'><i
-        class='fa-brands fa-google'
-      ></i>
-      Sign in with Google</a>
-    {{! signin with github button }}
-    <a href='/auth/github' class='btn btn-primary button-link'><i
-        class='fa-brands fa-github'
-      ></i>
-      Sign in with GitHub</a>
-    <hr />
-    Already have an account?
-    <a href='/auth/login' title='Login'>Login</a>
-  </fieldset>
-</form>
+<div class='colored-page' id='auth-page'>
+  <h2>Register</h2>
+  {{#if messages}}
+    <p class='alert alert-danger'><i class='fa-solid fa-circle-exclamation'></i>
+      {{messages}}</p>
+  {{else}}
+    <p class='alert alert-secondary'><i class='fa-solid fa-paw'></i>
+      Please create your account</p>
+  {{/if}}
+  <form method='post'>
+    <fieldset class='form-group'>
+      <label for='username' class='col-2 control-label'>Username: *</label>
+      <input
+        name='username'
+        id='username'
+        required
+        type='email'
+        placeholder='email@email.com'
+      />
+    </fieldset>
+    <fieldset class='form-group'>
+      <label for='password' class='col-2 control-label'>Password: *</label>
+      <input
+        name='password'
+        id='password'
+        type='password'
+        required
+        pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
+      />
+      <img
+        src='/images/show.png'
+        alt='Show/Hide'
+        id='imgShowHide'
+        onclick='showHide();'
+      />
+    </fieldset>
+    <fieldset class='form-group'>
+      <label for='confirm' class='col-2 control-label'>Confirm: *</label>
+      <input
+        name='confirm'
+        id='confirm'
+        type='password'
+        required
+        pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
+        onkeyup='return comparePasswords();'
+      />
+      <span id='pwMsg'></span>
+    </fieldset>
+    <fieldset class='form-group'>
+      <button
+        class='btn btn-secondary offset-2'
+        onclick='return comparePasswords();'
+      >Register</button>
+      {{! signin with google button }}
+      <a href='/auth/google' class='btn btn-primary button-link'><i
+          class='fa-brands fa-google'
+        ></i>
+        Sign in with Google</a>
+      {{! signin with github button }}
+      <a href='/auth/github' class='btn btn-primary button-link'><i
+          class='fa-brands fa-github'
+        ></i>
+        Sign in with GitHub</a>
+      <hr />
+      <p class='already'>Already have an account?
+        <a href='/auth/login' title='Login'>Login</a></p>
+
+    </fieldset>
+  </form>
+  <img class='dog' src='/images/dog-png-ekf-home-39.png' alt='dog' /></div>

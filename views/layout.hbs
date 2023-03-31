@@ -54,32 +54,55 @@
         <div class='collapse navbar-collapse' id='navbarNav'>
           <ul class='navbar-nav'>
             <li class='nav-item'>
-              <a class='nav-link' aria-current='page' href='/'>Home</a>
+              <a class='nav-link' aria-current='page' href='/'><i
+                  class='fa-solid fa-house'
+                ></i>
+                Home</a>
             </li>
             {{! <li class='nav-item'>
               <a class='nav-link' href='/about'>About</a>
             </li> }}
             <li class='nav-item'>
-              <a class='nav-link' href='/animals'>Pets</a>
+              <a class='nav-link' href='/animals'><i
+                  class='fa-solid fa-dog'
+                ></i>
+                Pets</a>
             </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='/species/create'>Species</a>
-            </li></ul>
+            {{#if user}}
+              <li class='nav-item'>
+                <a class='nav-link' href='/species/create'><i
+                    class='fa-solid fa-feather'
+                  ></i>
+                  Species</a>
+              </li>
+            {{/if}}</ul>
           <ul class='navbar-nav ms-auto'>
             {{#if user}}
 
               <li class='nav-item'>
-                <a class='nav-link user-nav' href='#'>{{user.username}}</a>
+                <a class='nav-link user-nav user-name' href='#'><i
+                    class='fa-solid fa-bone'
+                  ></i>
+                  {{user.username}}</a>
               </li>
               <li class='nav-item'>
-                <a class='nav-link user-nav' href='/auth/logout'>Logout</a>
+                <a class='nav-link user-nav' href='/auth/logout'><i
+                    class='fa-solid fa-right-from-bracket'
+                  ></i>
+                  Logout</a>
               </li>
             {{else}}
               <li class='nav-item'>
-                <a class='nav-link user-nav' href='/auth/register'>Register</a>
+                <a class='nav-link user-nav' href='/auth/register'><i
+                    class='fa-solid fa-cat'
+                  ></i>
+                  Register</a>
               </li>
               <li class='nav-item'>
-                <a class='nav-link user-nav' href='/auth/login'>Login</a>
+                <a class='nav-link user-nav' href='/auth/login'><i
+                    class='fa-solid fa-right-to-bracket'
+                  ></i>
+                  Login</a>
               </li>
 
             {{/if}}</ul>

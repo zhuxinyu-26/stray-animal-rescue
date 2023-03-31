@@ -20,12 +20,19 @@
   <p class='card-text'>Comments: {{this.comments}}</p>
 {{/if}}
       
-      <a
-          href='/animals/delete/{{this._id}}'
-          title='Delete'
-          class='btn btn-primary'
-          onclick='return confirmAdopt();'
-        >Adopt</a>
+      
+ {{#if ../user}}
+  <a href='/animals/delete/{{this._id}}'
+     title='Delete'
+     class='btn btn-primary'
+     onclick='return confirmAdopt();'
+  >Adopt</a>
+ {{else}}
+  <a href='/auth/login'
+     class='btn btn-danger'
+  >Adopt</a>
+  {{/if}}
+
       {{#if ../user}}
         {{! edit button }}
         <a

@@ -1,13 +1,14 @@
-<h1>Animal List</h1>
+<div class='colored-page'>
+<h2>Pets List</h2>
 {{#if user}}
-  <a href='/animals/create'>Add a new rescued animal</a>
+  <a href='/animals/create'class="btn btn-primary">New rescued</a>
 {{/if}}
 <br />
 
 {{#each animals}}
 
   <div class='card d-inline-flex p-2' style='width: 18rem;'>
-    {{! <img src='...' class='card-img-top' alt='...' /> }}
+   <img src='/images/cat1.jpeg' class='card-img-top' alt='cat' /> 
     <div class='card-body'>
       <h5 class='card-title'>{{this.name}}</h5>
       <p class='card-text'>Species: {{this.species}}</p><p
@@ -15,24 +16,33 @@
       >Age: {{this.age}}</p>
       <p class='card-text'>Color: {{this.color}}</p>
       {{!-- <p class='card-text'>Sterilized: {{this.sterilized}}</p> --}}
-
-      <p class='card-text'>Comments: {{this.comments}}</p>
-      <a href='#' class='btn btn-primary'>Adopt</a>
+{{#if this.comments}}
+  <p class='card-text'>Comments: {{this.comments}}</p>
+{{/if}}
+      
+      <a
+          href='/animals/delete/{{this._id}}'
+          title='Delete'
+          class='btn btn-primary'
+          onclick='return confirmAdopt();'
+        >Adopt</a>
       {{#if ../user}}
         {{! edit button }}
         <a
           href='/animals/edit/{{this._id}}'
-          class='btn btn-primary'
-          title='Edit'
+          class='btn btn-primary action'
+          title='Delete' onclick='return confirmAdopt();'
         >
           <i class='fa-regular fa-pen-to-square'></i></a>
         {{! delete button }}
         <a
           href='/animals/delete/{{this._id}}'
           title='Delete'
-          class='btn btn-danger'
+          class='btn btn-danger action'
           onclick='return confirmDelete();'
         ><i class='fa-regular fa-trash-can'></i></a>
       {{/if}}
     </div>
-  </div>{{/each}}
+  </div>
+  {{/each}}
+  </div>

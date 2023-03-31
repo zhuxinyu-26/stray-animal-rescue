@@ -1,144 +1,95 @@
+/* main */
 * {
+  font-family: 'Ubuntu', sans-serif;
   margin: 0;
   padding: 0;
 }
 body {
-  padding: 50px;
+  background-color: #d5b4b4;
+  padding: 0px;
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: #423838;
 }
 
 a {
   color: #00b7ff;
 }
 
-#menu {
-  background: #867070;
-  color: #fff;
-  height: 45px;
-  padding-left: 18px;
-  border-radius: 10px;
+/* navbar */
+.logo {
+  width: 60px;
 }
-#menu ul,
-#menu li {
-  margin: 0 auto;
-  padding: 0;
-  list-style: none;
+.navbar {
+  background-color: #d5b4b4;
+  text-align: center;
 }
-#menu ul {
+.navbar a {
+  width: 120px;
+  color: #423838;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  margin: 8px;
+}
+.navbar a:hover,
+.navbar .active {
+  background-color: #867070;
+  color: #f5ebeb;
+  border-radius: 30px;
+  margin: 8px;
+}
+.navbar a.navbar-brand,
+a.user-nav:hover {
+  background-color: #d5b4b4;
+}
+
+/* header section */
+.headerSection {
   width: 100%;
+  height: 95vh;
+  background-color: #f5ebeb;
 }
-#menu li {
-  float: left;
-  display: inline;
+.white {
   position: relative;
 }
-#menu a {
-  display: block;
-  line-height: 45px;
-  padding: 0 14px;
-  text-decoration: none;
-  color: #f5ebeb;
-  font-size: 16px;
-}
-#menu a.dropdown-arrow:after {
-  content: '\002B';
-  margin-left: 5px;
-}
-#menu li a:hover {
-  color: #f5ebeb;
-  background: #d5b4b4;
-}
-#menu input {
-  display: none;
-  margin: 0;
-  padding: 0;
-  height: 45px;
+.colored {
+  padding: 50px 150px;
+  background-color: #d5b4b4;
   width: 100%;
-  opacity: 0;
-  cursor: pointer;
+  height: 70vh;
+  font-size: 24px;
 }
-#menu label {
-  display: none;
-  line-height: 45px;
+.colored h1 {
+  font-weight: 700;
+  font-size: 5rem;
+  width: 600px;
+
+  margin-bottom: 25px;
+}
+.colored h4 {
+  width: 600px;
+}
+.colored a {
   text-align: center;
+  width: 130px;
+  height: 40px;
+  margin-top: 25px;
+}
+.dog-cat {
+  width: 1000px;
   position: absolute;
-  left: 35px;
+  top: -450px;
+  right: 20px;
 }
-#menu label:before {
-  font-size: 1.6em;
-  content: '\2261';
-  margin-left: 20px;
-}
-#menu ul.sub-menus {
-  height: auto;
-  overflow: hidden;
-  width: 170px;
-  background: #d5b4b4;
-  position: absolute;
-  z-index: 99;
-  display: none;
-}
-#menu ul.sub-menus li {
-  display: block;
-  width: 100%;
-}
-#menu ul.sub-menus a {
-  color: #f5ebeb;
-  font-size: 16px;
-}
-#menu li:hover ul.sub-menus {
-  display: block;
-}
-#menu ul.sub-menus a:hover {
-  background: D5B4B4;
-  color: #f5ebeb;
-}
-@media screen and (max-width: 800px) {
-  #menu {
-    position: relative;
-  }
-  #menu ul {
-    background: #111;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: 0;
-    z-index: 3;
-    height: auto;
-    display: none;
-  }
-  #menu ul.sub-menus {
-    width: 100%;
-    position: static;
-  }
-  #menu ul.sub-menus a {
-    padding-left: 30px;
-  }
-  #menu li {
-    display: block;
-    float: none;
-    width: auto;
-  }
-  #menu input,
-  #menu label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-  }
-  #menu input {
-    z-index: 4;
-  }
-  #menu input:checked + label {
-    color: white;
-  }
-  #menu input:checked + label:before {
-    content: '\00d7';
-  }
-  #menu input:checked ~ ul {
-    display: block;
-  }
-}
+
+/* form */
 fieldset {
   border: 1px solid #cca383;
   width: 50%;
@@ -146,13 +97,37 @@ fieldset {
   padding: 30px;
 }
 
+/* card */
+.colored-page {
+  padding: 50px 150px;
+  background-color: #d5b4b4;
+  width: 100%;
+}
 .card {
   display: flex;
   width: 20%;
   height: auto;
   max-width: 400px; /* optional: set a maximum width for larger screens */
-  margin-bottom: 20px; /* optional: add some margin between cards */
+  margin: 20px 30px 50px 0;
 }
+.card h5 {
+  font-size: 22px;
+  font-weight: 700;
+}
+.card p {
+  font-size: 20px;
+}
+
+.card .action {
+  width: 40px;
+  height: 37px;
+}
+.card .action i {
+  font-size: 20px;
+  width: 100%;
+  margin: auto;
+}
+/* additional */
 #imgShowHide {
   cursor: pointer;
 }

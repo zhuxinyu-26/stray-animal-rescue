@@ -2,7 +2,9 @@
 function confirmDelete() {
   return confirm('Are you sure you want to delete this?');
 }
-
+function confirmAdopt() {
+  return confirm('Adopt this pet?');
+}
 function comparePasswords() {
   let pw1 = document.getElementById('password').value;
   let pw2 = document.getElementById('confirm').value;

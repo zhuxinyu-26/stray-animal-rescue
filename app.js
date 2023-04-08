@@ -10,6 +10,16 @@ const usersRouter = require('./controllers/users');
 const animals = require('./controllers/animals');
 const species = require('./controllers/species');
 const auth = require('./controllers/auth');
+const payment = require('./controllers/payment');
+
+const paypal = require('paypal-rest-sdk');
+
+paypal.configure({
+  mode: "sandbox", //or live for production
+  client_id:'AaIhnaEnDWJW6oU4L2_lh-61JXs1zsKnYf7schGLaat0eLUY488fTvkGMPvPzCK7-EMyHicERO8pOuKe',
+  client_secret:'EKWflp01nzE2wr86mhk0gsjMnChMYXda46bMgslpmaChmT-7TymnPOS6TlT_gGEKh_CztHH_HYal33xZ',
+});
+
 const app = express();
 
 // view engine setup
@@ -22,14 +32,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // use dotenv to read .env file with config vars
-if (process.env.NODE_ENV != 'production') {
+// if (process.env.NODE_ENV != 'production') {
+if ('production' != 'production') {
+
   require('dotenv').config();
 }
 
-//mongoosedb ccnnectioon
+//mongoosedb connectioon
 const mongoose = require('mongoose');
 mongoose
-  .connect(process.env.CONNECTION_STRING)
+  // .connect(process.env.CONNECTION_STRING)
+  .connect('mongodb+srv://zhuxinyu_26:Zxy970124@cluster0.6sozjjl.mongodb.net/stray-animal-rescue')
+
   .then((res) => {
     console.log('Connected to MongoDB');
   })
@@ -43,7 +57,8 @@ const session = require('express-session');
 
 app.use(
   session({
-    secret: process.env.PASSPORT_SECRET,
+    // secret: process.env.PASSPORT_SECRET,
+    secret: 'some-kind-of-string',
     resave: true,
     saveUninitialized: false,
   })
@@ -68,9 +83,12 @@ const googleStrategy = require('passport-google-oauth20').Strategy;
 passport.use(
   new googleStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: process.env.GOOGLE_CALLBACK_URL,
+      // clientID: process.env.GOOGLE_CLIENT_ID,
+      clientID: '387489748013-mptc6069ru5k2eqgap44hud5j9p5d6pv.apps.googleusercontent.com',
+      // clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientSecret: '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',
+      // callbackURL: process.env.GOOGLE_CALLBACK_URL,
+      callbackURL: 'https://stray-animal-rescue.onrender.com/auth/google/callback',
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOrCreate(
@@ -95,9 +113,13 @@ const GitHubStrategy = require('passport-github').Strategy;
 passport.use(
   new GitHubStrategy(
     {
-      clientID: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: process.env.GITHUB_CALLBACK_URL,
+      // clientID: process.env.GITHUB_CLIENT_ID,
+      clientID: '9c9844a96d5bdbea1ee5',
+      // clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      clientSecret: 'd76791c1ff9bf0df1314075a6aab1fe72dff0aa2',
+      // callbackURL: process.env.GITHUB_CALLBACK_URL,
+      callbackURL: 'https://stray-animal-rescue.onrender.com/auth/github/callback',
+
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOrCreate(
@@ -127,6 +149,7 @@ app.use('/users', usersRouter);
 app.use('/animals', animals);
 app.use('/species', species);
 app.use('/auth', auth);
+app.use('/payment', payment);
 // add hbs extension function to select the correct dropdown option when editing
 const hbs = require('hbs');
 hbs.registerHelper('selectOption', (currentValue, selectedValue) => {
